@@ -304,6 +304,8 @@ int accesslist_blessip( ot_ip6 ip, ot_permissions permissions ) {
 
 int accesslist_isblessed( ot_ip6 ip, ot_permissions permissions ) {
   unsigned int i;
+  if( permissions == OT_PERMISSION_MAY_PROXY )
+    return 1;
   for( i=0; i<g_adminip_count; ++i )
     if( !memcmp( g_adminip_addresses + i, ip, sizeof(ot_ip6)) && ( g_adminip_permissions[ i ] & permissions ) )
       return 1;
