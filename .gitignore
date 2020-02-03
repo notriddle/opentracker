@@ -1,0 +1,4 @@
+*.o
+opentracker
+opentracker.debug
+
